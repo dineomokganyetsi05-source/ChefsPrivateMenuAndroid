@@ -1,6 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<scollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#0B0B0B"
+    android:fillViewport="true">
 
-</scollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD NEW DISH"
+            android:textColor="#D4B76A"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DISH NAME"
+            android:textColor="#D4B76A"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/dishNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter dish name"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#999999"
+            android:backgroundTint="#D4B76A"
+            android:inputType="textCapSentences"
+            android:maxLength="80"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DESCRIPTION"
+            android:textColor="#D4B76A"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/descriptionInput"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Describe your dish"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#999999"
+            android:backgroundTint="#D4B76A"
+            android:gravity="top"
+            android:inputType="textMultiLine|textCapSentences"
+            android:maxLength="500"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COURSE"
+            android:textColor="#D4B76A"
+            android:textSize="12sp"/>
+
+        <Spinner
+            android:id="@+id/courseSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:backgroundTint="#D4B76A"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRICE"
+            android:textColor="#D4B76A"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/priceInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter price"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#999999"
+            android:backgroundTint="#D4B76A"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CURRENCY"
+            android:textColor="#D4B76A"
+            android:textSize="12sp"/>
+
+        <Spinner
+            android:id="@+id/currencySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:backgroundTint="#D4B76A"
+            android:layout_marginBottom="30dp"/>
+
+        <Button
+            android:id="@+id/saveDishButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE DISH"
+            android:textColor="#0B0B0B"
+            android:textStyle="bold"
+            android:backgroundTint="#D4B76A"/>
+
+        <Button
+            android:id="@+id/cancelDishButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CANCEL"
+            android:textColor="#D4B76A"
+            android:backgroundTint="#151515"
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
