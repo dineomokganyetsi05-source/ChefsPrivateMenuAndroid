@@ -1,19 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#0B0B0B"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:paddingBottom="35dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- APP HEADER -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="35dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CHEFS"
+                android:textColor="#D4B76A"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PRIVATE MENU"
+                android:textColor="#D4B76A"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="THE KITCHEN"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:letterSpacing="0.35"
+                android:layout_marginTop="15dp"/>
+
+        </LinearLayout>
+
+        <!-- MENU OVERVIEW -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MENU OVERVIEW"
+            android:textColor="#D4B76A"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- FIRST STATISTICS ROW -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:background="#151515"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/totalDishes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#D4B76A"
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TOTAL DISHES"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:background="#151515"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/starterCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#D4B76A"
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STARTERS"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- SECOND STATISTICS ROW -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="25dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:background="#151515"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/mainCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#D4B76A"
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MAINS"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:background="#151515"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/dessertCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#D4B76A"
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DESSERTS"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:layout_marginTop="7dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- AVERAGE PRICE -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AVERAGE PRICE"
+            android:textColor="#D4B76A"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/emptyAverage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add dishes to see your menu statistics."
+            android:textColor="#999999"
+            android:textSize="13sp"
+            android:padding="15dp"
+            android:background="#151515"/>
+
+        <!-- ADD DISH BUTTON -->
+
+        <Button
+            android:id="@+id/addDishButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+ ADD DISH"
+            android:textColor="#0B0B0B"
+            android:textStyle="bold"
+            android:backgroundTint="#D4B76A"
+            android:layout_marginTop="25dp"
+            android:padding="10dp"/>
+
+        <!-- MANAGE MENU BUTTON -->
+
+        <Button
+            android:id="@+id/manageMenuButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MANAGE MENU"
+            android:textColor="#0B0B0B"
+            android:textStyle="bold"
+            android:backgroundTint="#D4B76A"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+        <!-- VIEW MENU BUTTON -->
+
+        <Button
+            android:id="@+id/viewMenuButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="VIEW MENU"
+            android:textColor="#0B0B0B"
+            android:textStyle="bold"
+            android:backgroundTint="#D4B76A"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
