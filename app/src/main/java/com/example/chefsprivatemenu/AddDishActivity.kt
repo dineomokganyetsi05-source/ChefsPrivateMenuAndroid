@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.util.UUID
 
 class AddDishActivity : AppCompatActivity() {
 
@@ -86,11 +87,27 @@ class AddDishActivity : AppCompatActivity() {
                 }
 
                 else -> {
-                    Toast.makeText(
-                        this,
-                        "Your dish details are valid!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    val selectedCurrency = when (currencySpinner.selectedItemPosition) {
+                        0 -> "R"
+                        1 -> "$"
+                        2 -> "£"
+                        else -> "R"
+                    }
+
+                    val newDish = MenuItem(
+                        id = UUID.randomUUID().toString(),
+                        name = dishName,
+                        description = description,
+                        course = courseSpinner.selectedItem.toString(),
+                        price = price!!,
+                        currency = selectedCurrency
+                    )
+
+                    MenuStorage.add(this, newDish)
+
+                    Toast.makeText(this, "Dish saved successfully!", Toast.LENGTH_SHORT).show()
+
+                    finish()
                 }
             }
         }
