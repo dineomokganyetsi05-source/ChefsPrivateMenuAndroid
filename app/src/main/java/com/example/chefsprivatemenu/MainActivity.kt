@@ -16,9 +16,10 @@ class MainActivity : AppCompatActivity() {
         val manageMenuButton = findViewById<Button>(R.id.manageMenuButton)
         val viewMenuButton = findViewById<Button>(R.id.viewMenuButton)
 
-        // Add Dish button
+        // Open Add Dish screen
         addDishButton.setOnClickListener {
-            Toast.makeText(this, "Add Dish selected", Toast.LENGTH_SHORT).show()
+            val intent = android.content.Intent(this, AddDishActivity::class.java)
+            startActivity(intent)
         }
 
         // Manage Menu button
