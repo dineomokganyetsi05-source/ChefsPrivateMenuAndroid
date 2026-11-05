@@ -17,17 +17,20 @@
             android:name=".AddDishActivity"
             android:exported="false" />
 
+        <!-- Manage Menu Screen -->
+        <activity
+            android:name=".ManageMenuActivity"
+            android:exported="false" />
+
         <!-- Main Dashboard Screen -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
     </application>

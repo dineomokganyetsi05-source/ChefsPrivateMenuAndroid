@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         manageMenuButton.setOnClickListener {
-            Toast.makeText(this, "Manage Menu selected", Toast.LENGTH_SHORT).show()
+            val intent = android.content.Intent(this, ManageMenuActivity::class.java)
+            startActivity(intent)
         }
 
         viewMenuButton.setOnClickListener {
