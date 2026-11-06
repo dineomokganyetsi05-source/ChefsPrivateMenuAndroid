@@ -15,7 +15,7 @@ class AddDishActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_dish)
 
-        // Find the form elements
+        // Connect the XML elements
         val dishNameInput = findViewById<EditText>(R.id.dishNameInput)
         val descriptionInput = findViewById<EditText>(R.id.descriptionInput)
         val priceInput = findViewById<EditText>(R.id.priceInput)
@@ -27,7 +27,12 @@ class AddDishActivity : AppCompatActivity() {
         val cancelDishButton = findViewById<Button>(R.id.cancelDishButton)
 
         // Course options
-        val courses = arrayOf("Select Course", "Starter", "Main", "Dessert")
+        val courses = arrayOf(
+            "Select Course",
+            "Starter",
+            "Main",
+            "Dessert"
+        )
 
         val courseAdapter = ArrayAdapter(
             this,
@@ -42,7 +47,11 @@ class AddDishActivity : AppCompatActivity() {
         courseSpinner.adapter = courseAdapter
 
         // Currency options
-        val currencies = arrayOf("Rands (R)", "Dollars ($)", "Pounds (£)")
+        val currencies = arrayOf(
+            "Rands (R)",
+            "Dollars ($)",
+            "Pounds (£)"
+        )
 
         val currencyAdapter = ArrayAdapter(
             this,
@@ -56,16 +65,48 @@ class AddDishActivity : AppCompatActivity() {
 
         currencySpinner.adapter = currencyAdapter
 
-        // SAVE BUTTON
+        // Check whether an existing dish is being edited
+        val dishId = intent.getStringExtra("dish_id")
+
+        val existingDish = MenuStorage.getAll(this).find {
+            it.id == dishId
+        }
+
+        // Fill in the existing dish details when editing
+        existingDish?.let { dish ->
+
+            dishNameInput.setText(dish.name)
+            descriptionInput.setText(dish.description)
+            priceInput.setText(dish.price.toString())
+
+            courseSpinner.setSelection(
+                courses.indexOf(dish.course)
+            )
+
+            val currencyPosition = when (dish.currency) {
+                "$" -> 1
+                "£" -> 2
+                else -> 0
+            }
+
+            currencySpinner.setSelection(currencyPosition)
+
+            saveDishButton.text = "Update Dish"
+        }
+
+        // Save or update the dish
         saveDishButton.setOnClickListener {
 
             val dishName = dishNameInput.text.toString().trim()
             val description = descriptionInput.text.toString().trim()
             val priceText = priceInput.text.toString().trim()
 
-            val price = priceText.replace(",", ".").toDoubleOrNull()
+            val price = priceText
+                .replace(",", ".")
+                .toDoubleOrNull()
 
             when {
+
                 dishName.isEmpty() -> {
                     dishNameInput.error = "Enter a dish name"
                 }
@@ -83,36 +124,61 @@ class AddDishActivity : AppCompatActivity() {
                 }
 
                 price == null || price <= 0 -> {
-                    priceInput.error = "Enter a valid price greater than zero"
+                    priceInput.error =
+                        "Enter a valid price greater than zero"
                 }
 
                 else -> {
-                    val selectedCurrency = when (currencySpinner.selectedItemPosition) {
+
+                    val selectedCurrency = when (
+                        currencySpinner.selectedItemPosition
+                    ) {
                         0 -> "R"
                         1 -> "$"
                         2 -> "£"
                         else -> "R"
                     }
 
-                    val newDish = MenuItem(
-                        id = UUID.randomUUID().toString(),
+                    val dish = MenuItem(
+                        id = existingDish?.id
+                            ?: UUID.randomUUID().toString(),
+
                         name = dishName,
                         description = description,
+
                         course = courseSpinner.selectedItem.toString(),
-                        price = price!!,
+
+                        price = price,
                         currency = selectedCurrency
                     )
 
-                    MenuStorage.add(this, newDish)
+                    if (existingDish == null) {
 
-                    Toast.makeText(this, "Dish saved successfully!", Toast.LENGTH_SHORT).show()
+                        MenuStorage.add(this, dish)
+
+                        Toast.makeText(
+                            this,
+                            "Dish saved successfully!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                    } else {
+
+                        MenuStorage.update(this, dish)
+
+                        Toast.makeText(
+                            this,
+                            "Dish updated successfully!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
 
                     finish()
                 }
             }
         }
 
-        // CANCEL BUTTON
+        // Cancel and return to the previous screen
         cancelDishButton.setOnClickListener {
             finish()
         }

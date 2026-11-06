@@ -11,6 +11,7 @@ object MenuStorage {
 
     // Retrieve all saved dishes
     fun getAll(context: Context): MutableList<MenuItem> {
+
         val preferences = context.getSharedPreferences(
             PREFS_NAME,
             Context.MODE_PRIVATE
@@ -22,6 +23,7 @@ object MenuStorage {
         val items = mutableListOf<MenuItem>()
 
         for (i in 0 until array.length()) {
+
             val dish = array.getJSONObject(i)
 
             items.add(
@@ -41,16 +43,50 @@ object MenuStorage {
 
     // Add a new dish
     fun add(context: Context, item: MenuItem) {
+
         val items = getAll(context)
+
         items.add(item)
+
         saveAll(context, items)
+    }
+
+    // Update an existing dish
+    fun update(context: Context, updatedItem: MenuItem) {
+
+        val items = getAll(context)
+
+        val index = items.indexOfFirst {
+            it.id == updatedItem.id
+        }
+
+        if (index != -1) {
+
+            items[index] = updatedItem
+
+            saveAll(context, items)
+        }
+    }
+
+    // Delete an existing dish
+    fun delete(context: Context, dishId: String) {
+
+        val items = getAll(context)
+
+        val updatedItems = items.filter {
+            it.id != dishId
+        }
+
+        saveAll(context, updatedItems)
     }
 
     // Save the complete dish list
     private fun saveAll(context: Context, items: List<MenuItem>) {
+
         val array = JSONArray()
 
         items.forEach { item ->
+
             val dish = JSONObject()
 
             dish.put("id", item.id)
@@ -63,10 +99,12 @@ object MenuStorage {
             array.put(dish)
         }
 
-        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        context.getSharedPreferences(
+            PREFS_NAME,
+            Context.MODE_PRIVATE
+        )
             .edit()
             .putString(KEY_MENU_ITEMS, array.toString())
             .apply()
     }
 }
-
