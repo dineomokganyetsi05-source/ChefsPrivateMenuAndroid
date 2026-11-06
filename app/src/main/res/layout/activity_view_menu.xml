@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0B0B"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHEF'S"
+            android:textColor="#D4B76A"
+            android:textSize="16sp"
+            android:letterSpacing="0.2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OUR MENU"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discover our carefully prepared dishes"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Starters -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STARTERS"
+            android:textColor="#D4B76A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:id="@+id/startersContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/emptyStarters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No starters available yet."
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:visibility="gone" />
+
+        <!-- Main Courses -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAIN COURSES"
+            android:textColor="#D4B76A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:id="@+id/mainCoursesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/emptyMainCourses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No main courses available yet."
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:visibility="gone" />
+
+        <!-- Desserts -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DESSERTS"
+            android:textColor="#D4B76A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:id="@+id/dessertsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/emptyDesserts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No desserts available yet."
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:visibility="gone" />
+
+        <!-- Manage Menu Button -->
+        <Button
+            android:id="@+id/manageDishesButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manage Dishes"
+            android:textColor="#0B0B0B"
+            android:backgroundTint="#D4B76A"
+            android:layout_marginTop="32dp" />
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/backToDashboardButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to Dashboard"
+            android:textColor="#D4B76A"
+            android:backgroundTint="#252525"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+
+</ScrollView>
