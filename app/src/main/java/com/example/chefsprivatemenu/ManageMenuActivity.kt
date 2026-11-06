@@ -45,6 +45,8 @@ class ManageMenuActivity : AppCompatActivity() {
         courseFilterSpinner = findViewById(R.id.courseFilterSpinner)
 
         val backButton = findViewById<Button>(R.id.backButton)
+        val clearFiltersButton =
+            findViewById<Button>(R.id.clearFiltersButton)
 
         // Set up course filter
         val courseAdapter = ArrayAdapter(
@@ -105,7 +107,23 @@ class ManageMenuActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        // Return to dashboard
+        // Clear search and course filters
+        clearFiltersButton.setOnClickListener {
+
+            searchInput.text.clear()
+
+            courseFilterSpinner.setSelection(0)
+
+            displayMenuItems("", "All")
+
+            Toast.makeText(
+                this,
+                "Filters cleared",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        // Return to Dashboard
         backButton.setOnClickListener {
             finish()
         }
@@ -279,7 +297,7 @@ class ManageMenuActivity : AppCompatActivity() {
         }
     }
 
-    // Refresh the menu when returning to this screen
+    // Refresh menu when returning to this screen
     override fun onResume() {
         super.onResume()
 

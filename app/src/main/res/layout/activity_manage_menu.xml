@@ -37,6 +37,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginBottom="24dp" />
 
+        <!-- Search dishes -->
         <EditText
             android:id="@+id/searchInput"
             android:layout_width="match_parent"
@@ -48,6 +49,7 @@
             android:padding="12dp"
             android:singleLine="true" />
 
+        <!-- Filter by course -->
         <Spinner
             android:id="@+id/courseFilterSpinner"
             android:layout_width="match_parent"
@@ -55,6 +57,17 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="#D4B76A" />
 
+        <!-- Clear filters button -->
+        <Button
+            android:id="@+id/clearFiltersButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear Filters"
+            android:textColor="#D4B76A"
+            android:backgroundTint="#252525"
+            android:layout_marginTop="12dp" />
+
+        <!-- Search result count -->
         <TextView
             android:id="@+id/resultCount"
             android:layout_width="wrap_content"
@@ -65,12 +78,14 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="12dp" />
 
+        <!-- Dish cards appear here -->
         <LinearLayout
             android:id="@+id/menuItemsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
 
+        <!-- Empty search message -->
         <TextView
             android:id="@+id/emptyMessage"
             android:layout_width="match_parent"
@@ -82,6 +97,7 @@
             android:padding="24dp"
             android:visibility="gone" />
 
+        <!-- Back to Dashboard -->
         <Button
             android:id="@+id/backButton"
             android:layout_width="match_parent"
